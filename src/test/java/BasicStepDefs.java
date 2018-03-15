@@ -17,6 +17,7 @@ public class BasicStepDefs {
 
     public void initializeDriver()
     {
+        System.setProperty("webdriver.chrome.driver", "Driver/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--disable-gpu");
