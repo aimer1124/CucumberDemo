@@ -1,6 +1,10 @@
 # CucumberDemo [![Build Status](https://travis-ci.org/aimer1124/CucumberDemo.svg?branch=master)](https://travis-ci.org/aimer1124/CucumberDemo)
 Step by step to use Cucumber
 
+## Chrome
+
+- Chrome:Version 67.0.3396.99 (Official Build) (64-bit)
+- ChromeDriver 2.40:[http://chromedriver.storage.googleapis.com/index.html?path=2.40/](http://chromedriver.storage.googleapis.com/index.html?path=2.40/)
 
 ## Install gradle
 

@@ -19,7 +19,7 @@ public class BasicStepDefs {
     {
         System.setProperty("webdriver.chrome.driver", "Driver/chromedriver");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
@@ -42,7 +42,7 @@ public class BasicStepDefs {
         throw new PendingException();
     }
  /*
- Google feature steps
+ Baidu feature steps
   */
 
     @Given("^the page is open \"([^\"]*)\"$")
@@ -53,7 +53,7 @@ public class BasicStepDefs {
 
     @When("^I search for \"([^\"]*)\"$")
     public void I_search_for(String search) throws Throwable {
-        WebElement element = driver.findElement(By.name("q"));
+        WebElement element = driver.findElement(By.id("kw"));
         element.sendKeys(search);
         element.submit();
     }
