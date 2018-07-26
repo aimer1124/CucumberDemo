@@ -1,5 +1,5 @@
 # CucumberDemo [![Build Status](https://travis-ci.org/aimer1124/CucumberDemo.svg?branch=master)](https://travis-ci.org/aimer1124/CucumberDemo)
-Step by step to use Cucumber
+Step by step to use Cucumber in MacOS
 
 ## Chrome
 
