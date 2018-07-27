@@ -21,7 +21,7 @@ public class BasicStepDefs {
     {
         System.setProperty("webdriver.chrome.driver", "Driver/chromedriver");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
@@ -48,20 +48,20 @@ public class BasicStepDefs {
   */
 
     @Given("^用户打开百度搜索页面$")
-    public void the_page_is_open() throws Throwable {
+    public void open_Baidu_page() throws Throwable {
         initializeDriver();
         driver.get("https://www.baidu.com");
     }
 
     @When("^在搜索框中搜索行为驱动开发$")
-    public void I_search_for() throws Throwable {
+    public void search_content() throws Throwable {
         WebElement element = driver.findElement(By.id("kw"));
         element.sendKeys("行为驱动开发");
         element.submit();
     }
 
     @Then("^浏览器标题中包含行为驱动开发$")
-    public void a_browser_title_should_contains() throws Throwable {
+    public void browser_title_should_contains_searchContent() throws Throwable {
         Thread.sleep(1000);
         assertTrue(driver.getTitle().contains("行为驱动开发"));
         closeDriver();
