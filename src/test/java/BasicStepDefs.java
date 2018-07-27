@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static junit.framework.TestCase.assertTrue;
+
 
 public class BasicStepDefs {
 
@@ -19,7 +21,7 @@ public class BasicStepDefs {
     {
         System.setProperty("webdriver.chrome.driver", "Driver/chromedriver");
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
@@ -45,22 +47,23 @@ public class BasicStepDefs {
  Baidu feature steps
   */
 
-    @Given("^the page is open \"([^\"]*)\"$")
-    public void the_page_is_open(String page) throws Throwable {
+    @Given("^用户打开百度搜索页面$")
+    public void the_page_is_open() throws Throwable {
         initializeDriver();
-        driver.get(page);
+        driver.get("https://www.baidu.com");
     }
 
-    @When("^I search for \"([^\"]*)\"$")
-    public void I_search_for(String search) throws Throwable {
+    @When("^在搜索框中搜索行为驱动开发$")
+    public void I_search_for() throws Throwable {
         WebElement element = driver.findElement(By.id("kw"));
-        element.sendKeys(search);
+        element.sendKeys("行为驱动开发");
         element.submit();
     }
 
-    @Then("^a browser title should contains \"([^\"]*)\"$")
-    public void a_browser_title_should_contains(String text) throws Throwable {
+    @Then("^浏览器标题中包含行为驱动开发$")
+    public void a_browser_title_should_contains() throws Throwable {
         Thread.sleep(1000);
+        assertTrue(driver.getTitle().contains("行为驱动开发"));
         closeDriver();
 
     }
