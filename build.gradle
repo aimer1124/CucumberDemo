@@ -25,7 +25,7 @@ dependencies {
     compile 'info.cukes:cucumber-junit:1.1.2'
 }
 
-task Baidu() {
+task cucumberer() {
     dependsOn assemble, compileTestJava
     doLast {
         javaexec {

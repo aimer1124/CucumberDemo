@@ -17,39 +17,10 @@ public class BasicStepDefs {
 
     WebDriver driver =null;
 
-    public void initializeDriver()
-    {
-        System.setProperty("webdriver.chrome.driver", "Driver/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--no-sandbox");
-        driver = new ChromeDriver(options);
-    }
-
-
- /*
- Basic feature steps
-  */
-
-    @Given("^\"([^\"]*)\" use Cucumber Main class to run tests$")
-    public void I_use_Cucumber_Main_class_to_run_tests(String testString) throws Throwable {
-        System.out.println("Hello cucumber jvm " + testString);
-    }
-
-
-    @Then("^Gradle should report \"([^\"]*)\"$")
-
-    public void Gradle_should_report() throws Throwable {
-        throw new PendingException();
-    }
- /*
- Baidu feature steps
-  */
-
     @Given("^用户打开百度搜索页面$")
-    public void open_Baidu_page() throws Throwable {
-        initializeDriver();
+    public void open_Baidu_searchPage() throws Throwable {
+        System.setProperty("webdriver.chrome.driver", "Driver/chromedriver");
+        driver = new ChromeDriver();
         driver.get("https://www.baidu.com");
     }
 
@@ -64,12 +35,8 @@ public class BasicStepDefs {
     public void browser_title_should_contains_searchContent() throws Throwable {
         Thread.sleep(1000);
         assertTrue(driver.getTitle().contains("行为驱动开发"));
-        closeDriver();
-
-    }
-
-    private void closeDriver() {
         driver.quit();
+
     }
 
 }
